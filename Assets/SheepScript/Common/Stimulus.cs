@@ -28,15 +28,15 @@ namespace SheepScript
                 }else
                 if (value == stimulusState.stay)
                 {
-                    stimulusStartEvent?.Invoke();
+                    stimulusStayEvent?.Invoke();
                 }else
                 if (value == stimulusState.end)
                 {
-                    stimulusStartEvent?.Invoke();
+                    stimulusEndEvent?.Invoke();
                 }
             }  
         }
-        
+
         public virtual void onStimulusStart()
         {
             
