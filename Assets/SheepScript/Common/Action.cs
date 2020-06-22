@@ -7,14 +7,46 @@ namespace SheepScript
 
     public class Action : SheepScriptBase
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        /// <summary>
+        /// virtual (extendable) function that actually performs the action
+        /// </summary>
+        public enum ActionState { start, stay, end };
 
+        private ActionState currentState = ActionState.end;
+
+        public ActionState CurrentState
+        {
+            get => currentState;
+            set
+            {
+                if (currentState != value)
+                {
+                    StateChanged();
+                }
+
+                currentState = value;
+                Debug.Log(this.name + "CurrentState = " + "" + currentState);
+            }
         }
 
-        // Update is called once per frame
-        void Update()
+        public virtual void StartAction()
+        {
+            if (CurrentState == ActionState.end)
+            {
+                CurrentState = ActionState.start;
+            }
+            else
+            {
+                CurrentState = ActionState.stay;
+            }
+
+        }
+        public virtual void EndAction()
+        {
+            CurrentState = ActionState.end;
+        }
+
+        public virtual void StateChanged()
         {
 
         }

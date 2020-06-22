@@ -8,24 +8,24 @@ namespace SheepScript
     /// <summary>
     /// Simple input test for keyboard
     /// </summary>
-    public class Key : Stimulus
+    public class Key : Detector
     {
         public KeyCode inputKey;
         private void Update()
         {
             if (Input.GetKeyDown(inputKey))
             {
-                CurrentState = stimulusState.start;
+                CurrentState = detectorState.start;
             }
 
             if (Input.GetKey(inputKey))
             {
-                CurrentState = stimulusState.stay;
+                CurrentState = detectorState.stay;
             }
 
             if (Input.GetKeyUp(inputKey))
             {
-                CurrentState = stimulusState.end;
+                CurrentState = detectorState.end;
             }
         }
     }  

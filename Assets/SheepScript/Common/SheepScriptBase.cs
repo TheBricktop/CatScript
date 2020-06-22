@@ -6,7 +6,7 @@ namespace SheepScript
 {
     public class SheepScriptBase : MonoBehaviour
     {
-       
+
     }
 }
 
